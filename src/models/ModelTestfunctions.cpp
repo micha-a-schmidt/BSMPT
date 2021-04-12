@@ -391,6 +391,14 @@ TestResults CheckNLOMasses(const Class_Potential_Origin &point)
     else
       NLOMass.push_back(esNLO.eigenvalues()[i]);
   }
+  std::cout << "\nFirst Derivative cancellation" << std::endl;
+  // std::cout << "NCT = "<<NablaVCT  << std::endl;
+  // std::cout << "NCW = " <<NablaWeinberg<<std::endl;
+  std::cout << "NCW+NCW = " << NablaWeinberg+ NablaVCT << std::endl;
+  std::cout << "\nSecond Derivative of the VCT and VCW"<<std::endl;
+  std::cout << HesseVCT + HesseWeinberg << std::endl;
+  std::cout << "\nThe Second Derivative of VCW "<<std::endl;
+  std::cout << HesseWeinberg <<std::endl;
 
   std::cout << "The higgs masses squared at LO | NLO are : " << std::endl;
   for (std::size_t i = 0; i < NHiggs; i++)
