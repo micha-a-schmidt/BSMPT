@@ -15,6 +15,7 @@ set(header
   ${header_path}/ClassTemplate.h
   ${header_path}/ClassPotentialC2HDM_CTImL6.h
   ${header_path}/ClassPotentialC2HDM_CTImL7.h
+  ${header_path}/ClassPotentialC2HDM_GenIm.h
 
 
 )
@@ -37,6 +38,7 @@ set(src
   ClassTemplate.cpp
   ClassPotentialC2HDM_CTImL6.cpp
   ClassPotentialC2HDM_CTImL7.cpp
+  ClassPotentialC2HDM_GenIm.cpp
 
 
 )
