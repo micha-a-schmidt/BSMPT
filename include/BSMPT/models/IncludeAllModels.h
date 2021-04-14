@@ -27,6 +27,7 @@
 #include <string> // for string
 #include <unordered_map>
 #include <vector>
+#include <set>
 
 /**
  * @file
@@ -51,6 +52,7 @@ enum class ModelIDs
   // Here you start adding your models
   TEMPLATE,
   C2HDMCTIML6,
+  C2HDMCTIML7,
 
   // DO NOT EDIT the part below
   stop
@@ -67,8 +69,26 @@ const std::unordered_map<std::string, ModelIDs> ModelNames{
     {"cxsm", ModelIDs::CXSM},
     {"template", ModelIDs::TEMPLATE},
     {"c2hdmctiml6", ModelIDs::C2HDMCTIML6},
-    };
+    {"c2hdmctiml7", ModelIDs::C2HDMCTIML7},
 
+};
+/**
+ * @brief List of all models which are implemented for the EWBG calculation
+ *
+ */
+const std::set<ModelID::ModelIDs> EWBG_ImplementedModels = {
+    ModelID::ModelIDs::C2HDM,
+    ModelID::ModelIDs::C2HDMCTIML6,
+    ModelID::ModelIDs::C2HDMCTIML7
+};
+/**
+ * @brief Checks if given model is implemented for the EWBG calculation
+ * 
+ * @param modelname 
+ * @return true 
+ * @return false 
+ */
+bool ModelEWBGImplemented(ModelIDs  modelname);
 /**
  * @brief InvertModelNames
  * @return The switched map to ModelNames

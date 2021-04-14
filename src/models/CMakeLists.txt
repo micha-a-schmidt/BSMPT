@@ -13,12 +13,8 @@ set(header
 
   # Here you can add your new model
   ${header_path}/ClassTemplate.h
-  ${header_path}/ClassPotentialC2HDM_rev.h
-  ${header_path}/ClassPotentialC2HDM_GenTad.h
   ${header_path}/ClassPotentialC2HDM_CTImL6.h
   ${header_path}/ClassPotentialC2HDM_CTImL7.h
-  ${header_path}/ClassPotentialC2HDM_CTReL6.h
-  ${header_path}/ClassPotentialC2HDM_GenIm.h
 
 
 )
@@ -39,12 +35,8 @@ set(src
 
   # Here you can add your new model
   ClassTemplate.cpp
-  ClassPotentialC2HDM_rev.cpp
-  ClassPotentialC2HDM_GenTad.cpp
   ClassPotentialC2HDM_CTImL6.cpp
   ClassPotentialC2HDM_CTImL7.cpp
-  ClassPotentialC2HDM_CTReL6.cpp
-  ClassPotentialC2HDM_GenIm.cpp
 
 
 )
