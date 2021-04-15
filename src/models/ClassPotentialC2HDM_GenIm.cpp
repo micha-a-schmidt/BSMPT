@@ -2641,7 +2641,7 @@ std::vector<double> Class_Potential_C2HDM_GenIm::calc_CT() const
   }
   /////////////////////////////////////////////////
   double dummy1 = 0;
-  double dummy2 = 0;
+  double dummy2 = ((v1 * HCW(4, 5)) / std::pow(v2, 3) + HCW(6, 7) / (v1 * v2))/(1-std::pow(v1, 2) / std::pow(v2, 2) );
   // Du1CT
   parCT.push_back(dummy1 * std::pow(v2, 2) + HCW(4, 4) / 2. +
                   (v2 * HCW(4, 6)) / (2. * v1) - (3 * HCW(5, 5)) / 2. -
