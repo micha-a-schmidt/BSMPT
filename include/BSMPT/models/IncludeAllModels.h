@@ -54,6 +54,7 @@ enum class ModelIDs
   C2HDMCTIML6,
   C2HDMCTIML7,
   C2HDMGENIM,
+  C2HDMREV,
 
   // DO NOT EDIT the part below
   stop
@@ -71,7 +72,8 @@ const std::unordered_map<std::string, ModelIDs> ModelNames{
     {"template", ModelIDs::TEMPLATE},
     {"c2hdmctiml6", ModelIDs::C2HDMCTIML6},
     {"c2hdmctiml7", ModelIDs::C2HDMCTIML7},
-    {"c2hdmctgenim",ModelIDs::C2HDMGENIM}
+    {"c2hdmctgenim",ModelIDs::C2HDMGENIM},
+    {"c2hdmrev",ModelIDs::C2HDMREV}
 
 };
 /**
@@ -82,7 +84,8 @@ const std::set<ModelID::ModelIDs> EWBG_ImplementedModels = {
     ModelID::ModelIDs::C2HDM,
     ModelID::ModelIDs::C2HDMCTIML6,
     ModelID::ModelIDs::C2HDMCTIML7,
-    ModelID::ModelIDs::C2HDMGENIM
+    ModelID::ModelIDs::C2HDMGENIM,
+    ModelID::ModelIDs::C2HDMREV
 };
 /**
  * @brief Checks if given model is implemented for the EWBG calculation
