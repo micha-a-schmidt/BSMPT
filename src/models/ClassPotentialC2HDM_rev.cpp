@@ -34,7 +34,7 @@ Class_Potential_C2HDM_rev::Class_Potential_C2HDM_rev()
   NChargedHiggs = 4;
 
   nPar   = 9;
-  nParCT = 14;
+  nParCT = 15;
 
   nVEV = 4;
   if (!IncludeChargeBreakingVEV) nVEV = 3;
@@ -94,7 +94,7 @@ std::vector<std::string> Class_Potential_C2HDM_rev::addLegendCT() const
   labels.push_back("DT1");
   labels.push_back("DT2");
   labels.push_back("DT3");
-  // labels.push_back("DImL6");
+  labels.push_back("CTImL6");
   return labels;
 }
 
@@ -317,1766 +317,1767 @@ void Class_Potential_C2HDM_rev::set_CT_Pot_Par(const std::vector<double> &p)
   DT1       = p[11];
   DT2       = p[12];
   DT3       = p[13];
-  CTImL6    = p[14];
+  CTImLam6  = p[14];
 
-Curvature_Higgs_CT_L1[2] = DTCharged;
-Curvature_Higgs_CT_L1[4] = DT1;
-Curvature_Higgs_CT_L1[6] = DT2;
-Curvature_Higgs_CT_L1[7] = DT3;
+  Curvature_Higgs_CT_L1[2] = DTCharged;
+  Curvature_Higgs_CT_L1[4] = DT1;
+  Curvature_Higgs_CT_L1[6] = DT2;
+  Curvature_Higgs_CT_L1[7] = DT3;
 
-Curvature_Higgs_CT_L2[0][0] = Du1CT;
-Curvature_Higgs_CT_L2[0][2] = -DRu3CT;
-Curvature_Higgs_CT_L2[0][3] = DIu3CT;
-Curvature_Higgs_CT_L2[1][1] = Du1CT;
-Curvature_Higgs_CT_L2[1][2] = -DIu3CT;
-Curvature_Higgs_CT_L2[1][3] = -DRu3CT;
-Curvature_Higgs_CT_L2[2][0] = -DRu3CT;
-Curvature_Higgs_CT_L2[2][1] = -DIu3CT;
-Curvature_Higgs_CT_L2[2][2] = Du2CT;
-Curvature_Higgs_CT_L2[3][0] = DIu3CT;
-Curvature_Higgs_CT_L2[3][1] = -DRu3CT;
-Curvature_Higgs_CT_L2[3][3] = Du2CT;
-Curvature_Higgs_CT_L2[4][4] = Du1CT;
-Curvature_Higgs_CT_L2[4][6] = -DRu3CT;
-Curvature_Higgs_CT_L2[4][7] = DIu3CT;
-Curvature_Higgs_CT_L2[5][5] = Du1CT;
-Curvature_Higgs_CT_L2[5][6] = -DIu3CT;
-Curvature_Higgs_CT_L2[5][7] = -DRu3CT;
-Curvature_Higgs_CT_L2[6][4] = -DRu3CT;
-Curvature_Higgs_CT_L2[6][5] = -DIu3CT;
-Curvature_Higgs_CT_L2[6][6] = Du2CT;
-Curvature_Higgs_CT_L2[7][4] = DIu3CT;
-Curvature_Higgs_CT_L2[7][5] = -DRu3CT;
-Curvature_Higgs_CT_L2[7][7] = Du2CT;
- {
-   Curvature_Higgs_CT_L4[0][0][0][0] = 3*DL1CT;
+  Curvature_Higgs_CT_L2[0][0] = Du1CT;
+  Curvature_Higgs_CT_L2[0][2] = -DRu3CT;
+  Curvature_Higgs_CT_L2[0][3] = DIu3CT;
+  Curvature_Higgs_CT_L2[1][1] = Du1CT;
+  Curvature_Higgs_CT_L2[1][2] = -DIu3CT;
+  Curvature_Higgs_CT_L2[1][3] = -DRu3CT;
+  Curvature_Higgs_CT_L2[2][0] = -DRu3CT;
+  Curvature_Higgs_CT_L2[2][1] = -DIu3CT;
+  Curvature_Higgs_CT_L2[2][2] = Du2CT;
+  Curvature_Higgs_CT_L2[3][0] = DIu3CT;
+  Curvature_Higgs_CT_L2[3][1] = -DRu3CT;
+  Curvature_Higgs_CT_L2[3][3] = Du2CT;
+  Curvature_Higgs_CT_L2[4][4] = Du1CT;
+  Curvature_Higgs_CT_L2[4][6] = -DRu3CT;
+  Curvature_Higgs_CT_L2[4][7] = DIu3CT;
+  Curvature_Higgs_CT_L2[5][5] = Du1CT;
+  Curvature_Higgs_CT_L2[5][6] = -DIu3CT;
+  Curvature_Higgs_CT_L2[5][7] = -DRu3CT;
+  Curvature_Higgs_CT_L2[6][4] = -DRu3CT;
+  Curvature_Higgs_CT_L2[6][5] = -DIu3CT;
+  Curvature_Higgs_CT_L2[6][6] = Du2CT;
+  Curvature_Higgs_CT_L2[7][4] = DIu3CT;
+  Curvature_Higgs_CT_L2[7][5] = -DRu3CT;
+  Curvature_Higgs_CT_L2[7][7] = Du2CT;
+  {
+    Curvature_Higgs_CT_L4[0][0][0][0] = 3 * DL1CT;
 
-Curvature_Higgs_CT_L4[0][0][0][3] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[0][0][0][3] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][1][1] = DL1CT;
+    Curvature_Higgs_CT_L4[0][0][1][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][0][1][2] = CTImL6;
+    Curvature_Higgs_CT_L4[0][0][1][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][2][1] = CTImL6;
+    Curvature_Higgs_CT_L4[0][0][2][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][2][2] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[0][0][2][2] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[0][0][2][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][0][2][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][0][3][0] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[0][0][3][0] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][3][2] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][0][3][2] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][0][3][3] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[0][0][3][3] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[0][0][4][4] = DL1CT;
+    Curvature_Higgs_CT_L4[0][0][4][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][0][4][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][0][4][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][5][5] = DL1CT;
+    Curvature_Higgs_CT_L4[0][0][5][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][0][5][6] = CTImL6;
+    Curvature_Higgs_CT_L4[0][0][5][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][6][5] = CTImL6;
+    Curvature_Higgs_CT_L4[0][0][6][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][6][6] = DL3CT;
+    Curvature_Higgs_CT_L4[0][0][6][6] = DL3CT;
 
-Curvature_Higgs_CT_L4[0][0][7][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][0][7][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][0][7][7] = DL3CT;
+    Curvature_Higgs_CT_L4[0][0][7][7] = DL3CT;
 
-Curvature_Higgs_CT_L4[0][1][0][1] = DL1CT;
+    Curvature_Higgs_CT_L4[0][1][0][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][1][0][2] = CTImL6;
+    Curvature_Higgs_CT_L4[0][1][0][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][1][1][0] = DL1CT;
+    Curvature_Higgs_CT_L4[0][1][1][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][1][1][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][1][1][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][1][2][0] = CTImL6;
+    Curvature_Higgs_CT_L4[0][1][2][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][1][2][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[0][1][2][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[0][1][2][3] = DRL5CT;
+    Curvature_Higgs_CT_L4[0][1][2][3] = DRL5CT;
 
-Curvature_Higgs_CT_L4[0][1][3][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][1][3][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][1][3][2] = DRL5CT;
+    Curvature_Higgs_CT_L4[0][1][3][2] = DRL5CT;
 
-Curvature_Higgs_CT_L4[0][1][3][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][1][3][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][2][0][1] = CTImL6;
+    Curvature_Higgs_CT_L4[0][2][0][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][2][0][2] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[0][2][0][2] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[0][2][0][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][2][0][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][2][1][0] = CTImL6;
+    Curvature_Higgs_CT_L4[0][2][1][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][2][1][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[0][2][1][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[0][2][1][3] = DRL5CT;
+    Curvature_Higgs_CT_L4[0][2][1][3] = DRL5CT;
 
-Curvature_Higgs_CT_L4[0][2][2][0] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[0][2][2][0] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[0][2][2][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[0][2][2][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[0][2][3][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][2][3][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][2][3][1] = DRL5CT;
+    Curvature_Higgs_CT_L4[0][2][3][1] = DRL5CT;
 
-Curvature_Higgs_CT_L4[0][2][4][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][4][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][4][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][4][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][5][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][5][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][5][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][5][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][6][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][6][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][6][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][6][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][7][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][7][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][2][7][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][2][7][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][0][0] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[0][3][0][0] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[0][3][0][2] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][3][0][2] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][3][0][3] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[0][3][0][3] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[0][3][1][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][3][1][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][3][1][2] = DRL5CT;
+    Curvature_Higgs_CT_L4[0][3][1][2] = DRL5CT;
 
-Curvature_Higgs_CT_L4[0][3][1][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][3][1][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][3][2][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][3][2][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][3][2][1] = DRL5CT;
+    Curvature_Higgs_CT_L4[0][3][2][1] = DRL5CT;
 
-Curvature_Higgs_CT_L4[0][3][3][0] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[0][3][3][0] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[0][3][3][1] = -DIL5CT;
+    Curvature_Higgs_CT_L4[0][3][3][1] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[0][3][4][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][3][4][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][3][4][6] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][4][6] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][4][7] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][4][7] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][5][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][3][5][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][3][5][6] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][5][6] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][5][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][5][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][6][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][6][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][6][5] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][6][5] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][7][4] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][7][4] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][3][7][5] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][3][7][5] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][0][4] = DL1CT;
+    Curvature_Higgs_CT_L4[0][4][0][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][4][0][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][4][0][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][4][2][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][2][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][2][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][2][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][3][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][4][3][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][4][3][6] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][3][6] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][3][7] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][3][7] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][4][0] = DL1CT;
+    Curvature_Higgs_CT_L4[0][4][4][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][4][4][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][4][4][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][4][6][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][6][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][6][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][6][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][7][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][4][7][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][4][7][2] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][7][2] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][4][7][3] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][4][7][3] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][0][5] = DL1CT;
+    Curvature_Higgs_CT_L4[0][5][0][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][5][0][6] = CTImL6;
+    Curvature_Higgs_CT_L4[0][5][0][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][5][2][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][2][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][2][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][2][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][3][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][5][3][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][5][3][6] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][3][6] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][3][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][3][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][5][0] = DL1CT;
+    Curvature_Higgs_CT_L4[0][5][5][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[0][5][5][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][5][5][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][5][6][0] = CTImL6;
+    Curvature_Higgs_CT_L4[0][5][6][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][5][6][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][6][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][6][3] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][6][3] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][7][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][7][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][5][7][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][5][7][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][0][5] = CTImL6;
+    Curvature_Higgs_CT_L4[0][6][0][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][6][0][6] = DL3CT;
+    Curvature_Higgs_CT_L4[0][6][0][6] = DL3CT;
 
-Curvature_Higgs_CT_L4[0][6][2][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][2][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][2][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][2][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][3][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][3][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][3][5] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][3][5] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][4][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][4][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][4][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][4][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][5][0] = CTImL6;
+    Curvature_Higgs_CT_L4[0][6][5][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[0][6][5][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][5][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][5][3] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][6][5][3] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][6][6][0] = DL3CT;
+    Curvature_Higgs_CT_L4[0][6][6][0] = DL3CT;
 
-Curvature_Higgs_CT_L4[0][7][0][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][7][0][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][7][0][7] = DL3CT;
+    Curvature_Higgs_CT_L4[0][7][0][7] = DL3CT;
 
-Curvature_Higgs_CT_L4[0][7][2][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][2][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][2][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][2][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][3][4] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][3][4] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][3][5] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][3][5] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][4][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[0][7][4][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[0][7][4][2] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][4][2] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][4][3] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][4][3] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][5][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][5][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][5][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[0][7][5][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[0][7][7][0] = DL3CT;
+    Curvature_Higgs_CT_L4[0][7][7][0] = DL3CT;
 
-Curvature_Higgs_CT_L4[1][0][0][1] = DL1CT;
+    Curvature_Higgs_CT_L4[1][0][0][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][0][0][2] = CTImL6;
+    Curvature_Higgs_CT_L4[1][0][0][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][0][1][0] = DL1CT;
+    Curvature_Higgs_CT_L4[1][0][1][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][0][1][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][0][1][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][0][2][0] = CTImL6;
+    Curvature_Higgs_CT_L4[1][0][2][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][0][2][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][0][2][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][0][2][3] = DRL5CT;
+    Curvature_Higgs_CT_L4[1][0][2][3] = DRL5CT;
 
-Curvature_Higgs_CT_L4[1][0][3][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][0][3][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][0][3][2] = DRL5CT;
+    Curvature_Higgs_CT_L4[1][0][3][2] = DRL5CT;
 
-Curvature_Higgs_CT_L4[1][0][3][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[1][0][3][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[1][1][0][0] = DL1CT;
+    Curvature_Higgs_CT_L4[1][1][0][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][1][0][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][1][0][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][1][1] = 3*DL1CT;
+    Curvature_Higgs_CT_L4[1][1][1][1] = 3 * DL1CT;
 
-Curvature_Higgs_CT_L4[1][1][1][2] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[1][1][1][2] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][2][1] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[1][1][2][1] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][2][2] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[1][1][2][2] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[1][1][2][3] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][1][2][3] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][1][3][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][1][3][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][3][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][1][3][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][1][3][3] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[1][1][3][3] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[1][1][4][4] = DL1CT;
+    Curvature_Higgs_CT_L4[1][1][4][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][1][4][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][1][4][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][5][5] = DL1CT;
+    Curvature_Higgs_CT_L4[1][1][5][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][1][5][6] = CTImL6;
+    Curvature_Higgs_CT_L4[1][1][5][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][6][5] = CTImL6;
+    Curvature_Higgs_CT_L4[1][1][6][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][6][6] = DL3CT;
+    Curvature_Higgs_CT_L4[1][1][6][6] = DL3CT;
 
-Curvature_Higgs_CT_L4[1][1][7][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][1][7][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][1][7][7] = DL3CT;
+    Curvature_Higgs_CT_L4[1][1][7][7] = DL3CT;
 
-Curvature_Higgs_CT_L4[1][2][0][0] = CTImL6;
+    Curvature_Higgs_CT_L4[1][2][0][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][2][0][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][2][0][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][2][0][3] = DRL5CT;
+    Curvature_Higgs_CT_L4[1][2][0][3] = DRL5CT;
 
-Curvature_Higgs_CT_L4[1][2][1][1] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[1][2][1][1] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[1][2][1][2] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[1][2][1][2] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[1][2][1][3] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][2][1][3] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][2][2][0] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][2][2][0] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][2][2][1] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[1][2][2][1] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[1][2][3][0] = DRL5CT;
+    Curvature_Higgs_CT_L4[1][2][3][0] = DRL5CT;
 
-Curvature_Higgs_CT_L4[1][2][3][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][2][3][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][2][4][4] = CTImL6;
+    Curvature_Higgs_CT_L4[1][2][4][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][2][4][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][4][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][4][7] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][4][7] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][5][5] = CTImL6;
+    Curvature_Higgs_CT_L4[1][2][5][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][2][5][6] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][5][6] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][5][7] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][5][7] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][6][4] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][6][4] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][6][5] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][6][5] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][7][4] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][7][4] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][2][7][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][2][7][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][0][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][3][0][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][3][0][2] = DRL5CT;
+    Curvature_Higgs_CT_L4[1][3][0][2] = DRL5CT;
 
-Curvature_Higgs_CT_L4[1][3][0][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[1][3][0][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[1][3][1][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][3][1][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][3][1][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][3][1][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][3][1][3] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[1][3][1][3] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[1][3][2][0] = DRL5CT;
+    Curvature_Higgs_CT_L4[1][3][2][0] = DRL5CT;
 
-Curvature_Higgs_CT_L4[1][3][2][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[1][3][2][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[1][3][3][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[1][3][3][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[1][3][3][1] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[1][3][3][1] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[1][3][4][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][4][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][4][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][4][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][5][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][5][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][5][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][5][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][6][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][6][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][6][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][6][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][7][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][7][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][3][7][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][3][7][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][1][4] = DL1CT;
+    Curvature_Higgs_CT_L4[1][4][1][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][4][1][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][4][1][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][4][2][4] = CTImL6;
+    Curvature_Higgs_CT_L4[1][4][2][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][4][2][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][2][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][2][7] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][2][7] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][3][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][3][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][3][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][3][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][4][1] = DL1CT;
+    Curvature_Higgs_CT_L4[1][4][4][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][4][4][2] = CTImL6;
+    Curvature_Higgs_CT_L4[1][4][4][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][4][6][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][6][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][6][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][6][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][7][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][4][7][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][4][7][2] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][7][2] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][4][7][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][4][7][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][1][5] = DL1CT;
+    Curvature_Higgs_CT_L4[1][5][1][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][5][1][6] = CTImL6;
+    Curvature_Higgs_CT_L4[1][5][1][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][5][2][5] = CTImL6;
+    Curvature_Higgs_CT_L4[1][5][2][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][5][2][6] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][2][6] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][2][7] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][2][7] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][3][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][3][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][3][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][3][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][5][1] = DL1CT;
+    Curvature_Higgs_CT_L4[1][5][5][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[1][5][5][2] = CTImL6;
+    Curvature_Higgs_CT_L4[1][5][5][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][5][6][1] = CTImL6;
+    Curvature_Higgs_CT_L4[1][5][6][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][5][6][2] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][6][2] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][6][3] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][6][3] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][7][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][7][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][5][7][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][5][7][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][1][5] = CTImL6;
+    Curvature_Higgs_CT_L4[1][6][1][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][6][1][6] = DL3CT;
+    Curvature_Higgs_CT_L4[1][6][1][6] = DL3CT;
 
-Curvature_Higgs_CT_L4[1][6][2][4] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][2][4] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][2][5] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][2][5] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][3][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][3][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][3][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][3][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][4][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][4][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][4][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][4][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][5][1] = CTImL6;
+    Curvature_Higgs_CT_L4[1][6][5][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[1][6][5][2] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][5][2] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][5][3] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][6][5][3] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][6][6][1] = DL3CT;
+    Curvature_Higgs_CT_L4[1][6][6][1] = DL3CT;
 
-Curvature_Higgs_CT_L4[1][7][1][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][7][1][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][7][1][7] = DL3CT;
+    Curvature_Higgs_CT_L4[1][7][1][7] = DL3CT;
 
-Curvature_Higgs_CT_L4[1][7][2][4] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][2][4] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][2][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][2][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][3][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][3][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][3][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][3][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][4][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[1][7][4][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[1][7][4][2] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][4][2] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][4][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][4][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][5][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][5][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][5][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[1][7][5][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[1][7][7][1] = DL3CT;
+    Curvature_Higgs_CT_L4[1][7][7][1] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][0][0][1] = CTImL6;
+    Curvature_Higgs_CT_L4[2][0][0][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][0][0][2] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[2][0][0][2] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[2][0][0][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[2][0][0][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[2][0][1][0] = CTImL6;
+    Curvature_Higgs_CT_L4[2][0][1][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][0][1][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][0][1][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][0][1][3] = DRL5CT;
+    Curvature_Higgs_CT_L4[2][0][1][3] = DRL5CT;
 
-Curvature_Higgs_CT_L4[2][0][2][0] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[2][0][2][0] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[2][0][2][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][0][2][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][0][3][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[2][0][3][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[2][0][3][1] = DRL5CT;
+    Curvature_Higgs_CT_L4[2][0][3][1] = DRL5CT;
 
-Curvature_Higgs_CT_L4[2][0][4][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][4][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][4][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][4][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][5][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][5][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][5][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][5][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][6][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][6][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][6][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][6][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][7][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][7][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][0][7][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][0][7][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][0][0] = CTImL6;
+    Curvature_Higgs_CT_L4[2][1][0][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][1][0][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][1][0][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][1][0][3] = DRL5CT;
+    Curvature_Higgs_CT_L4[2][1][0][3] = DRL5CT;
 
-Curvature_Higgs_CT_L4[2][1][1][1] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[2][1][1][1] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[2][1][1][2] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[2][1][1][2] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[2][1][1][3] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][1][1][3] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][1][2][0] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][1][2][0] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][1][2][1] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[2][1][2][1] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[2][1][3][0] = DRL5CT;
+    Curvature_Higgs_CT_L4[2][1][3][0] = DRL5CT;
 
-Curvature_Higgs_CT_L4[2][1][3][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][1][3][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][1][4][4] = CTImL6;
+    Curvature_Higgs_CT_L4[2][1][4][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][1][4][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][4][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][4][7] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][4][7] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][5][5] = CTImL6;
+    Curvature_Higgs_CT_L4[2][1][5][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][1][5][6] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][5][6] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][5][7] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][5][7] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][6][4] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][6][4] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][6][5] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][6][5] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][7][4] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][7][4] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][1][7][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][1][7][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][2][0][0] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[2][2][0][0] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[2][2][0][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][2][0][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][2][1][0] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][2][1][0] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][2][1][1] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[2][2][1][1] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[2][2][2][2] = 3*DL2CT;
+    Curvature_Higgs_CT_L4[2][2][2][2] = 3 * DL2CT;
 
-Curvature_Higgs_CT_L4[2][2][3][3] = DL2CT;
+    Curvature_Higgs_CT_L4[2][2][3][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][2][4][4] = DL3CT;
+    Curvature_Higgs_CT_L4[2][2][4][4] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][2][5][5] = DL3CT;
+    Curvature_Higgs_CT_L4[2][2][5][5] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][2][6][6] = DL2CT;
+    Curvature_Higgs_CT_L4[2][2][6][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][2][7][7] = DL2CT;
+    Curvature_Higgs_CT_L4[2][2][7][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][3][0][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[2][3][0][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[2][3][0][1] = DRL5CT;
+    Curvature_Higgs_CT_L4[2][3][0][1] = DRL5CT;
 
-Curvature_Higgs_CT_L4[2][3][1][0] = DRL5CT;
+    Curvature_Higgs_CT_L4[2][3][1][0] = DRL5CT;
 
-Curvature_Higgs_CT_L4[2][3][1][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[2][3][1][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[2][3][2][3] = DL2CT;
+    Curvature_Higgs_CT_L4[2][3][2][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][3][3][2] = DL2CT;
+    Curvature_Higgs_CT_L4[2][3][3][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][4][0][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][0][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][0][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][0][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][1][4] = CTImL6;
+    Curvature_Higgs_CT_L4[2][4][1][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][4][1][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][1][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][1][7] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][1][7] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][2][4] = DL3CT;
+    Curvature_Higgs_CT_L4[2][4][2][4] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][4][4][1] = CTImL6;
+    Curvature_Higgs_CT_L4[2][4][4][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][4][4][2] = DL3CT;
+    Curvature_Higgs_CT_L4[2][4][4][2] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][4][6][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][6][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][6][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][6][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][7][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][7][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][4][7][1] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][4][7][1] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][0][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][0][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][0][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][0][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][1][5] = CTImL6;
+    Curvature_Higgs_CT_L4[2][5][1][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][5][1][6] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][1][6] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][1][7] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][1][7] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][2][5] = DL3CT;
+    Curvature_Higgs_CT_L4[2][5][2][5] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][5][5][1] = CTImL6;
+    Curvature_Higgs_CT_L4[2][5][5][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[2][5][5][2] = DL3CT;
+    Curvature_Higgs_CT_L4[2][5][5][2] = DL3CT;
 
-Curvature_Higgs_CT_L4[2][5][6][0] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][6][0] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][6][1] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][6][1] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][7][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][7][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][5][7][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][5][7][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][0][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][0][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][0][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][0][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][1][4] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][1][4] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][1][5] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][1][5] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][2][6] = DL2CT;
+    Curvature_Higgs_CT_L4[2][6][2][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][6][4][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][4][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][4][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][4][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][5][0] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][5][0] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][5][1] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][6][5][1] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][6][6][2] = DL2CT;
+    Curvature_Higgs_CT_L4[2][6][6][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][7][0][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][0][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][0][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][0][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][1][4] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][1][4] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][1][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][1][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][2][7] = DL2CT;
+    Curvature_Higgs_CT_L4[2][7][2][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[2][7][4][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][4][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][4][1] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][4][1] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][5][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][5][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][5][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[2][7][5][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[2][7][7][2] = DL2CT;
+    Curvature_Higgs_CT_L4[2][7][7][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][0][0][0] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[3][0][0][0] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[3][0][0][2] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][0][0][2] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][0][0][3] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[3][0][0][3] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[3][0][1][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][0][1][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][0][1][2] = DRL5CT;
+    Curvature_Higgs_CT_L4[3][0][1][2] = DRL5CT;
 
-Curvature_Higgs_CT_L4[3][0][1][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][0][1][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][0][2][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][0][2][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][0][2][1] = DRL5CT;
+    Curvature_Higgs_CT_L4[3][0][2][1] = DRL5CT;
 
-Curvature_Higgs_CT_L4[3][0][3][0] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[3][0][3][0] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[3][0][3][1] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][0][3][1] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][0][4][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][0][4][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][0][4][6] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][4][6] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][4][7] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][4][7] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][5][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][0][5][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][0][5][6] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][5][6] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][5][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][5][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][6][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][6][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][6][5] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][6][5] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][7][4] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][7][4] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][0][7][5] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][0][7][5] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][0][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][1][0][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][1][0][2] = DRL5CT;
+    Curvature_Higgs_CT_L4[3][1][0][2] = DRL5CT;
 
-Curvature_Higgs_CT_L4[3][1][0][3] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][1][0][3] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][1][1][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][1][1][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][1][1][2] = DIL5CT;
+    Curvature_Higgs_CT_L4[3][1][1][2] = DIL5CT;
 
-Curvature_Higgs_CT_L4[3][1][1][3] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[3][1][1][3] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[3][1][2][0] = DRL5CT;
+    Curvature_Higgs_CT_L4[3][1][2][0] = DRL5CT;
 
-Curvature_Higgs_CT_L4[3][1][2][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[3][1][2][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[3][1][3][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][1][3][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][1][3][1] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[3][1][3][1] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[3][1][4][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][4][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][4][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][4][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][5][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][5][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][5][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][5][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][6][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][6][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][6][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][6][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][7][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][7][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][1][7][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][1][7][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][2][0][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][2][0][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][2][0][1] = DRL5CT;
+    Curvature_Higgs_CT_L4[3][2][0][1] = DRL5CT;
 
-Curvature_Higgs_CT_L4[3][2][1][0] = DRL5CT;
+    Curvature_Higgs_CT_L4[3][2][1][0] = DRL5CT;
 
-Curvature_Higgs_CT_L4[3][2][1][1] = DIL5CT;
+    Curvature_Higgs_CT_L4[3][2][1][1] = DIL5CT;
 
-Curvature_Higgs_CT_L4[3][2][2][3] = DL2CT;
+    Curvature_Higgs_CT_L4[3][2][2][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][2][3][2] = DL2CT;
+    Curvature_Higgs_CT_L4[3][2][3][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][3][0][0] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[3][3][0][0] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[3][3][0][1] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][3][0][1] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][3][1][0] = -DIL5CT;
+    Curvature_Higgs_CT_L4[3][3][1][0] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[3][3][1][1] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[3][3][1][1] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[3][3][2][2] = DL2CT;
+    Curvature_Higgs_CT_L4[3][3][2][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][3][3][3] = 3*DL2CT;
+    Curvature_Higgs_CT_L4[3][3][3][3] = 3 * DL2CT;
 
-Curvature_Higgs_CT_L4[3][3][4][4] = DL3CT;
+    Curvature_Higgs_CT_L4[3][3][4][4] = DL3CT;
 
-Curvature_Higgs_CT_L4[3][3][5][5] = DL3CT;
+    Curvature_Higgs_CT_L4[3][3][5][5] = DL3CT;
 
-Curvature_Higgs_CT_L4[3][3][6][6] = DL2CT;
+    Curvature_Higgs_CT_L4[3][3][6][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][3][7][7] = DL2CT;
+    Curvature_Higgs_CT_L4[3][3][7][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][4][0][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][4][0][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][4][0][6] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][0][6] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][0][7] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][0][7] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][1][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][1][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][1][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][1][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][3][4] = DL3CT;
+    Curvature_Higgs_CT_L4[3][4][3][4] = DL3CT;
 
-Curvature_Higgs_CT_L4[3][4][4][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][4][4][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][4][4][3] = DL3CT;
+    Curvature_Higgs_CT_L4[3][4][4][3] = DL3CT;
 
-Curvature_Higgs_CT_L4[3][4][6][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][6][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][6][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][6][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][7][0] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][7][0] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][4][7][1] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][4][7][1] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][0][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][5][0][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][5][0][6] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][0][6] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][0][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][0][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][1][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][1][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][1][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][1][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][3][5] = DL3CT;
+    Curvature_Higgs_CT_L4[3][5][3][5] = DL3CT;
 
-Curvature_Higgs_CT_L4[3][5][5][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[3][5][5][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[3][5][5][3] = DL3CT;
+    Curvature_Higgs_CT_L4[3][5][5][3] = DL3CT;
 
-Curvature_Higgs_CT_L4[3][5][6][0] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][6][0] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][6][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][6][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][7][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][7][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][5][7][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][5][7][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][0][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][0][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][0][5] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][0][5] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][1][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][1][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][1][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][1][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][3][6] = DL2CT;
+    Curvature_Higgs_CT_L4[3][6][3][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][6][4][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][4][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][4][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][4][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][5][0] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][5][0] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][5][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][6][5][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][6][6][3] = DL2CT;
+    Curvature_Higgs_CT_L4[3][6][6][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][7][0][4] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][0][4] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][0][5] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][0][5] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][1][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][1][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][1][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][1][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][3][7] = DL2CT;
+    Curvature_Higgs_CT_L4[3][7][3][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[3][7][4][0] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][4][0] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][4][1] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][4][1] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][5][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][5][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][5][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[3][7][5][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[3][7][7][3] = DL2CT;
+    Curvature_Higgs_CT_L4[3][7][7][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[4][0][0][4] = DL1CT;
+    Curvature_Higgs_CT_L4[4][0][0][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][0][0][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][0][0][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][0][2][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][2][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][2][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][2][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][3][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][0][3][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][0][3][6] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][3][6] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][3][7] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][3][7] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][4][0] = DL1CT;
+    Curvature_Higgs_CT_L4[4][0][4][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][0][4][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][0][4][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][0][6][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][6][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][6][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][6][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][7][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][0][7][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][0][7][2] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][7][2] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][0][7][3] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][0][7][3] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][1][4] = DL1CT;
+    Curvature_Higgs_CT_L4[4][1][1][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][1][1][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][1][1][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][1][2][4] = CTImL6;
+    Curvature_Higgs_CT_L4[4][1][2][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][1][2][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][2][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][2][7] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][2][7] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][3][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][3][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][3][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][3][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][4][1] = DL1CT;
+    Curvature_Higgs_CT_L4[4][1][4][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][1][4][2] = CTImL6;
+    Curvature_Higgs_CT_L4[4][1][4][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][1][6][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][6][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][6][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][6][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][7][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][1][7][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][1][7][2] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][7][2] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][1][7][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][1][7][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][0][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][0][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][0][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][0][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][1][4] = CTImL6;
+    Curvature_Higgs_CT_L4[4][2][1][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][2][1][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][1][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][1][7] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][1][7] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][2][4] = DL3CT;
+    Curvature_Higgs_CT_L4[4][2][2][4] = DL3CT;
 
-Curvature_Higgs_CT_L4[4][2][4][1] = CTImL6;
+    Curvature_Higgs_CT_L4[4][2][4][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][2][4][2] = DL3CT;
+    Curvature_Higgs_CT_L4[4][2][4][2] = DL3CT;
 
-Curvature_Higgs_CT_L4[4][2][6][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][6][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][6][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][6][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][7][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][7][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][2][7][1] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][2][7][1] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][0][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][3][0][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][3][0][6] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][0][6] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][0][7] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][0][7] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][1][6] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][1][6] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][1][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][1][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][3][4] = DL3CT;
+    Curvature_Higgs_CT_L4[4][3][3][4] = DL3CT;
 
-Curvature_Higgs_CT_L4[4][3][4][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][3][4][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][3][4][3] = DL3CT;
+    Curvature_Higgs_CT_L4[4][3][4][3] = DL3CT;
 
-Curvature_Higgs_CT_L4[4][3][6][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][6][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][6][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][6][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][7][0] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][7][0] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][3][7][1] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][3][7][1] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][4][0][0] = DL1CT;
+    Curvature_Higgs_CT_L4[4][4][0][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][4][0][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][4][0][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][1][1] = DL1CT;
+    Curvature_Higgs_CT_L4[4][4][1][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][4][1][2] = CTImL6;
+    Curvature_Higgs_CT_L4[4][4][1][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][2][1] = CTImL6;
+    Curvature_Higgs_CT_L4[4][4][2][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][2][2] = DL3CT;
+    Curvature_Higgs_CT_L4[4][4][2][2] = DL3CT;
 
-Curvature_Higgs_CT_L4[4][4][3][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][4][3][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][3][3] = DL3CT;
+    Curvature_Higgs_CT_L4[4][4][3][3] = DL3CT;
 
-Curvature_Higgs_CT_L4[4][4][4][4] = 3*DL1CT;
+    Curvature_Higgs_CT_L4[4][4][4][4] = 3 * DL1CT;
 
-Curvature_Higgs_CT_L4[4][4][4][7] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[4][4][4][7] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][5][5] = DL1CT;
+    Curvature_Higgs_CT_L4[4][4][5][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][4][5][6] = CTImL6;
+    Curvature_Higgs_CT_L4[4][4][5][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][6][5] = CTImL6;
+    Curvature_Higgs_CT_L4[4][4][6][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][6][6] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[4][4][6][6] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[4][4][6][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][4][6][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][4][7][4] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[4][4][7][4] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[4][4][7][6] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][4][7][6] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][4][7][7] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[4][4][7][7] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[4][5][4][5] = DL1CT;
+    Curvature_Higgs_CT_L4[4][5][4][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][5][4][6] = CTImL6;
+    Curvature_Higgs_CT_L4[4][5][4][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][5][5][4] = DL1CT;
+    Curvature_Higgs_CT_L4[4][5][5][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[4][5][5][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][5][5][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][5][6][4] = CTImL6;
+    Curvature_Higgs_CT_L4[4][5][6][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][5][6][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[4][5][6][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[4][5][6][7] = DRL5CT;
+    Curvature_Higgs_CT_L4[4][5][6][7] = DRL5CT;
 
-Curvature_Higgs_CT_L4[4][5][7][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][5][7][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][5][7][6] = DRL5CT;
+    Curvature_Higgs_CT_L4[4][5][7][6] = DRL5CT;
 
-Curvature_Higgs_CT_L4[4][5][7][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][5][7][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][6][0][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][0][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][0][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][0][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][1][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][1][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][1][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][1][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][2][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][2][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][2][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][2][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][3][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][3][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][3][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][6][3][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][6][4][5] = CTImL6;
+    Curvature_Higgs_CT_L4[4][6][4][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][6][4][6] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[4][6][4][6] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[4][6][4][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][6][4][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][6][5][4] = CTImL6;
+    Curvature_Higgs_CT_L4[4][6][5][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[4][6][5][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[4][6][5][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[4][6][5][7] = DRL5CT;
+    Curvature_Higgs_CT_L4[4][6][5][7] = DRL5CT;
 
-Curvature_Higgs_CT_L4[4][6][6][4] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[4][6][6][4] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[4][6][6][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[4][6][6][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[4][6][7][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][6][7][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][6][7][5] = DRL5CT;
+    Curvature_Higgs_CT_L4[4][6][7][5] = DRL5CT;
 
-Curvature_Higgs_CT_L4[4][7][0][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][7][0][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][7][0][2] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][0][2] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][0][3] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][0][3] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][1][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][7][1][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][7][1][2] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][1][2] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][1][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][1][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][2][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][2][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][2][1] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][2][1] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][3][0] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][3][0] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][3][1] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[4][7][3][1] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[4][7][4][4] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[4][7][4][4] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[4][7][4][6] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][7][4][6] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][7][4][7] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[4][7][4][7] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[4][7][5][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[4][7][5][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[4][7][5][6] = DRL5CT;
+    Curvature_Higgs_CT_L4[4][7][5][6] = DRL5CT;
 
-Curvature_Higgs_CT_L4[4][7][5][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][7][5][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][7][6][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][7][6][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[4][7][6][5] = DRL5CT;
+    Curvature_Higgs_CT_L4[4][7][6][5] = DRL5CT;
 
-Curvature_Higgs_CT_L4[4][7][7][4] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[4][7][7][4] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[4][7][7][5] = -DIL5CT;
+    Curvature_Higgs_CT_L4[4][7][7][5] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[5][0][0][5] = DL1CT;
+    Curvature_Higgs_CT_L4[5][0][0][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][0][0][6] = CTImL6;
+    Curvature_Higgs_CT_L4[5][0][0][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][0][2][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][2][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][2][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][2][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][3][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][0][3][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][0][3][6] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][3][6] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][3][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][3][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][5][0] = DL1CT;
+    Curvature_Higgs_CT_L4[5][0][5][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][0][5][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][0][5][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][0][6][0] = CTImL6;
+    Curvature_Higgs_CT_L4[5][0][6][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][0][6][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][6][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][6][3] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][6][3] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][7][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][7][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][0][7][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][0][7][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][1][5] = DL1CT;
+    Curvature_Higgs_CT_L4[5][1][1][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][1][1][6] = CTImL6;
+    Curvature_Higgs_CT_L4[5][1][1][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][1][2][5] = CTImL6;
+    Curvature_Higgs_CT_L4[5][1][2][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][1][2][6] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][2][6] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][2][7] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][2][7] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][3][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][3][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][3][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][3][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][5][1] = DL1CT;
+    Curvature_Higgs_CT_L4[5][1][5][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][1][5][2] = CTImL6;
+    Curvature_Higgs_CT_L4[5][1][5][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][1][6][1] = CTImL6;
+    Curvature_Higgs_CT_L4[5][1][6][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][1][6][2] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][6][2] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][6][3] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][6][3] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][7][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][7][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][1][7][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][1][7][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][0][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][0][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][0][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][0][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][1][5] = CTImL6;
+    Curvature_Higgs_CT_L4[5][2][1][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][2][1][6] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][1][6] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][1][7] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][1][7] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][2][5] = DL3CT;
+    Curvature_Higgs_CT_L4[5][2][2][5] = DL3CT;
 
-Curvature_Higgs_CT_L4[5][2][5][1] = CTImL6;
+    Curvature_Higgs_CT_L4[5][2][5][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][2][5][2] = DL3CT;
+    Curvature_Higgs_CT_L4[5][2][5][2] = DL3CT;
 
-Curvature_Higgs_CT_L4[5][2][6][0] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][6][0] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][6][1] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][6][1] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][7][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][7][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][2][7][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][2][7][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][0][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][3][0][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][3][0][6] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][0][6] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][0][7] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][0][7] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][1][6] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][1][6] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][1][7] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][1][7] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][3][5] = DL3CT;
+    Curvature_Higgs_CT_L4[5][3][3][5] = DL3CT;
 
-Curvature_Higgs_CT_L4[5][3][5][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][3][5][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][3][5][3] = DL3CT;
+    Curvature_Higgs_CT_L4[5][3][5][3] = DL3CT;
 
-Curvature_Higgs_CT_L4[5][3][6][0] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][6][0] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][6][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][6][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][7][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][7][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][3][7][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][3][7][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][4][4][5] = DL1CT;
+    Curvature_Higgs_CT_L4[5][4][4][5] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][4][4][6] = CTImL6;
+    Curvature_Higgs_CT_L4[5][4][4][6] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][4][5][4] = DL1CT;
+    Curvature_Higgs_CT_L4[5][4][5][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][4][5][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][4][5][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][4][6][4] = CTImL6;
+    Curvature_Higgs_CT_L4[5][4][6][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][4][6][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][4][6][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][4][6][7] = DRL5CT;
+    Curvature_Higgs_CT_L4[5][4][6][7] = DRL5CT;
 
-Curvature_Higgs_CT_L4[5][4][7][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][4][7][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][4][7][6] = DRL5CT;
+    Curvature_Higgs_CT_L4[5][4][7][6] = DRL5CT;
 
-Curvature_Higgs_CT_L4[5][4][7][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[5][4][7][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[5][5][0][0] = DL1CT;
+    Curvature_Higgs_CT_L4[5][5][0][0] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][5][0][3] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][5][0][3] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][1][1] = DL1CT;
+    Curvature_Higgs_CT_L4[5][5][1][1] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][5][1][2] = CTImL6;
+    Curvature_Higgs_CT_L4[5][5][1][2] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][2][1] = CTImL6;
+    Curvature_Higgs_CT_L4[5][5][2][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][2][2] = DL3CT;
+    Curvature_Higgs_CT_L4[5][5][2][2] = DL3CT;
 
-Curvature_Higgs_CT_L4[5][5][3][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][5][3][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][3][3] = DL3CT;
+    Curvature_Higgs_CT_L4[5][5][3][3] = DL3CT;
 
-Curvature_Higgs_CT_L4[5][5][4][4] = DL1CT;
+    Curvature_Higgs_CT_L4[5][5][4][4] = DL1CT;
 
-Curvature_Higgs_CT_L4[5][5][4][7] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][5][4][7] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][5][5] = 3*DL1CT;
+    Curvature_Higgs_CT_L4[5][5][5][5] = 3 * DL1CT;
 
-Curvature_Higgs_CT_L4[5][5][5][6] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[5][5][5][6] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][6][5] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[5][5][6][5] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][6][6] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[5][5][6][6] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[5][5][6][7] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][5][6][7] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][5][7][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][5][7][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][5][7][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][5][7][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][5][7][7] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[5][5][7][7] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[5][6][0][0] = CTImL6;
+    Curvature_Higgs_CT_L4[5][6][0][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][6][0][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][0][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][0][3] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][0][3] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][1][1] = CTImL6;
+    Curvature_Higgs_CT_L4[5][6][1][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][6][1][2] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][1][2] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][1][3] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][1][3] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][2][0] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][2][0] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][2][1] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][2][1] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][3][0] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][3][0] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][3][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][6][3][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][6][4][4] = CTImL6;
+    Curvature_Higgs_CT_L4[5][6][4][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[5][6][4][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][6][4][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][6][4][7] = DRL5CT;
+    Curvature_Higgs_CT_L4[5][6][4][7] = DRL5CT;
 
-Curvature_Higgs_CT_L4[5][6][5][5] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[5][6][5][5] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[5][6][5][6] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[5][6][5][6] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[5][6][5][7] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][6][5][7] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][6][6][4] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][6][6][4] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][6][6][5] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[5][6][6][5] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[5][6][7][4] = DRL5CT;
+    Curvature_Higgs_CT_L4[5][6][7][4] = DRL5CT;
 
-Curvature_Higgs_CT_L4[5][6][7][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][6][7][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][7][0][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][0][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][0][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][0][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][1][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][1][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][1][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][1][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][2][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][2][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][2][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][2][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][3][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][3][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][3][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[5][7][3][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[5][7][4][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][7][4][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][7][4][6] = DRL5CT;
+    Curvature_Higgs_CT_L4[5][7][4][6] = DRL5CT;
 
-Curvature_Higgs_CT_L4[5][7][4][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[5][7][4][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[5][7][5][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[5][7][5][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[5][7][5][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][7][5][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][7][5][7] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[5][7][5][7] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[5][7][6][4] = DRL5CT;
+    Curvature_Higgs_CT_L4[5][7][6][4] = DRL5CT;
 
-Curvature_Higgs_CT_L4[5][7][6][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[5][7][6][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[5][7][7][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[5][7][7][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[5][7][7][5] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[5][7][7][5] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[6][0][0][5] = CTImL6;
+    Curvature_Higgs_CT_L4[6][0][0][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][0][0][6] = DL3CT;
+    Curvature_Higgs_CT_L4[6][0][0][6] = DL3CT;
 
-Curvature_Higgs_CT_L4[6][0][2][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][2][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][2][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][2][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][3][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][3][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][3][5] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][3][5] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][4][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][4][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][4][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][4][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][5][0] = CTImL6;
+    Curvature_Higgs_CT_L4[6][0][5][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][0][5][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][5][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][5][3] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][0][5][3] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][0][6][0] = DL3CT;
+    Curvature_Higgs_CT_L4[6][0][6][0] = DL3CT;
 
-Curvature_Higgs_CT_L4[6][1][1][5] = CTImL6;
+    Curvature_Higgs_CT_L4[6][1][1][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][1][1][6] = DL3CT;
+    Curvature_Higgs_CT_L4[6][1][1][6] = DL3CT;
 
-Curvature_Higgs_CT_L4[6][1][2][4] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][2][4] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][2][5] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][2][5] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][3][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][3][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][3][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][3][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][4][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][4][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][4][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][4][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][5][1] = CTImL6;
+    Curvature_Higgs_CT_L4[6][1][5][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][1][5][2] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][5][2] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][5][3] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][1][5][3] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][1][6][1] = DL3CT;
+    Curvature_Higgs_CT_L4[6][1][6][1] = DL3CT;
 
-Curvature_Higgs_CT_L4[6][2][0][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][0][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][0][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][0][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][1][4] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][1][4] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][1][5] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][1][5] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][2][6] = DL2CT;
+    Curvature_Higgs_CT_L4[6][2][2][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][2][4][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][4][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][4][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][4][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][5][0] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][5][0] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][5][1] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][2][5][1] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][2][6][2] = DL2CT;
+    Curvature_Higgs_CT_L4[6][2][6][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][3][0][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][0][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][0][5] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][0][5] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][1][4] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][1][4] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][1][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][1][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][3][6] = DL2CT;
+    Curvature_Higgs_CT_L4[6][3][3][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][3][4][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][4][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][4][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][4][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][5][0] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][5][0] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][5][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][3][5][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][3][6][3] = DL2CT;
+    Curvature_Higgs_CT_L4[6][3][6][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][4][0][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][0][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][0][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][0][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][1][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][1][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][1][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][1][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][2][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][2][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][2][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][2][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][3][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][3][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][3][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][4][3][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][4][4][5] = CTImL6;
+    Curvature_Higgs_CT_L4[6][4][4][5] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][4][4][6] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[6][4][4][6] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[6][4][4][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[6][4][4][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[6][4][5][4] = CTImL6;
+    Curvature_Higgs_CT_L4[6][4][5][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][4][5][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][4][5][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][4][5][7] = DRL5CT;
+    Curvature_Higgs_CT_L4[6][4][5][7] = DRL5CT;
 
-Curvature_Higgs_CT_L4[6][4][6][4] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[6][4][6][4] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[6][4][6][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][4][6][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][4][7][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[6][4][7][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[6][4][7][5] = DRL5CT;
+    Curvature_Higgs_CT_L4[6][4][7][5] = DRL5CT;
 
-Curvature_Higgs_CT_L4[6][5][0][0] = CTImL6;
+    Curvature_Higgs_CT_L4[6][5][0][0] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][5][0][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][0][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][0][3] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][0][3] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][1][1] = CTImL6;
+    Curvature_Higgs_CT_L4[6][5][1][1] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][5][1][2] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][1][2] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][1][3] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][1][3] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][2][0] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][2][0] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][2][1] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][2][1] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][3][0] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][3][0] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][3][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[6][5][3][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[6][5][4][4] = CTImL6;
+    Curvature_Higgs_CT_L4[6][5][4][4] = CTImLam6;
 
-Curvature_Higgs_CT_L4[6][5][4][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][5][4][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][5][4][7] = DRL5CT;
+    Curvature_Higgs_CT_L4[6][5][4][7] = DRL5CT;
 
-Curvature_Higgs_CT_L4[6][5][5][5] = 3*CTImL6;
+    Curvature_Higgs_CT_L4[6][5][5][5] = 3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[6][5][5][6] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[6][5][5][6] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[6][5][5][7] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][5][5][7] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][5][6][4] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][5][6][4] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][5][6][5] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[6][5][6][5] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[6][5][7][4] = DRL5CT;
+    Curvature_Higgs_CT_L4[6][5][7][4] = DRL5CT;
 
-Curvature_Higgs_CT_L4[6][5][7][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][5][7][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][6][0][0] = DL3CT;
+    Curvature_Higgs_CT_L4[6][6][0][0] = DL3CT;
 
-Curvature_Higgs_CT_L4[6][6][1][1] = DL3CT;
+    Curvature_Higgs_CT_L4[6][6][1][1] = DL3CT;
 
-Curvature_Higgs_CT_L4[6][6][2][2] = DL2CT;
+    Curvature_Higgs_CT_L4[6][6][2][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][6][3][3] = DL2CT;
+    Curvature_Higgs_CT_L4[6][6][3][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][6][4][4] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[6][6][4][4] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[6][6][4][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][6][4][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][6][5][4] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][6][5][4] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][6][5][5] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[6][6][5][5] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[6][6][6][6] = 3*DL2CT;
+    Curvature_Higgs_CT_L4[6][6][6][6] = 3 * DL2CT;
 
-Curvature_Higgs_CT_L4[6][6][7][7] = DL2CT;
+    Curvature_Higgs_CT_L4[6][6][7][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][7][4][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[6][7][4][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[6][7][4][5] = DRL5CT;
+    Curvature_Higgs_CT_L4[6][7][4][5] = DRL5CT;
 
-Curvature_Higgs_CT_L4[6][7][5][4] = DRL5CT;
+    Curvature_Higgs_CT_L4[6][7][5][4] = DRL5CT;
 
-Curvature_Higgs_CT_L4[6][7][5][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[6][7][5][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[6][7][6][7] = DL2CT;
+    Curvature_Higgs_CT_L4[6][7][6][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[6][7][7][6] = DL2CT;
+    Curvature_Higgs_CT_L4[6][7][7][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][0][0][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][0][0][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][0][0][7] = DL3CT;
+    Curvature_Higgs_CT_L4[7][0][0][7] = DL3CT;
 
-Curvature_Higgs_CT_L4[7][0][2][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][2][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][2][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][2][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][3][4] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][3][4] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][3][5] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][3][5] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][4][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][0][4][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][0][4][2] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][4][2] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][4][3] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][4][3] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][5][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][5][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][5][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][0][5][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][0][7][0] = DL3CT;
+    Curvature_Higgs_CT_L4[7][0][7][0] = DL3CT;
 
-Curvature_Higgs_CT_L4[7][1][1][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][1][1][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][1][1][7] = DL3CT;
+    Curvature_Higgs_CT_L4[7][1][1][7] = DL3CT;
 
-Curvature_Higgs_CT_L4[7][1][2][4] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][2][4] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][2][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][2][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][3][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][3][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][3][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][3][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][4][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][1][4][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][1][4][2] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][4][2] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][4][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][4][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][5][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][5][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][5][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][1][5][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][1][7][1] = DL3CT;
+    Curvature_Higgs_CT_L4[7][1][7][1] = DL3CT;
 
-Curvature_Higgs_CT_L4[7][2][0][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][0][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][0][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][0][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][1][4] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][1][4] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][1][5] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][1][5] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][2][7] = DL2CT;
+    Curvature_Higgs_CT_L4[7][2][2][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][2][4][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][4][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][4][1] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][4][1] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][5][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][5][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][5][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][2][5][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][2][7][2] = DL2CT;
+    Curvature_Higgs_CT_L4[7][2][7][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][3][0][4] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][0][4] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][0][5] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][0][5] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][1][4] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][1][4] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][1][5] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][1][5] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][3][7] = DL2CT;
+    Curvature_Higgs_CT_L4[7][3][3][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][3][4][0] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][4][0] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][4][1] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][4][1] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][5][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][5][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][5][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][3][5][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][3][7][3] = DL2CT;
+    Curvature_Higgs_CT_L4[7][3][7][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][4][0][0] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][4][0][0] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][4][0][2] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][0][2] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][0][3] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][0][3] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][1][1] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][4][1][1] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][4][1][2] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][1][2] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][1][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][1][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][2][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][2][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][2][1] = -DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][2][1] = -DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][3][0] = DL4CT/2. - DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][3][0] = DL4CT / 2. - DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][3][1] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][4][3][1] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][4][4][4] = -3*CTImL6;
+    Curvature_Higgs_CT_L4[7][4][4][4] = -3 * CTImLam6;
 
-Curvature_Higgs_CT_L4[7][4][4][6] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][4][4][6] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][4][4][7] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[7][4][4][7] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[7][4][5][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][4][5][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][4][5][6] = DRL5CT;
+    Curvature_Higgs_CT_L4[7][4][5][6] = DRL5CT;
 
-Curvature_Higgs_CT_L4[7][4][5][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][4][5][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][4][6][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][4][6][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][4][6][5] = DRL5CT;
+    Curvature_Higgs_CT_L4[7][4][6][5] = DRL5CT;
 
-Curvature_Higgs_CT_L4[7][4][7][4] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[7][4][7][4] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[7][4][7][5] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][4][7][5] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][5][0][2] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][0][2] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][0][3] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][0][3] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][1][2] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][1][2] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][1][3] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][1][3] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][2][0] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][2][0] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][2][1] = DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][2][1] = DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][3][0] = -DIL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][3][0] = -DIL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][3][1] = DL4CT/2. + DRL5CT/2.;
+    Curvature_Higgs_CT_L4[7][5][3][1] = DL4CT / 2. + DRL5CT / 2.;
 
-Curvature_Higgs_CT_L4[7][5][4][5] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][5][4][5] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][5][4][6] = DRL5CT;
+    Curvature_Higgs_CT_L4[7][5][4][6] = DRL5CT;
 
-Curvature_Higgs_CT_L4[7][5][4][7] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][5][4][7] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][5][5][4] = -CTImL6;
+    Curvature_Higgs_CT_L4[7][5][5][4] = -CTImLam6;
 
-Curvature_Higgs_CT_L4[7][5][5][6] = DIL5CT;
+    Curvature_Higgs_CT_L4[7][5][5][6] = DIL5CT;
 
-Curvature_Higgs_CT_L4[7][5][5][7] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[7][5][5][7] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[7][5][6][4] = DRL5CT;
+    Curvature_Higgs_CT_L4[7][5][6][4] = DRL5CT;
 
-Curvature_Higgs_CT_L4[7][5][6][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[7][5][6][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[7][5][7][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][5][7][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][5][7][5] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[7][5][7][5] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[7][6][4][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][6][4][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][6][4][5] = DRL5CT;
+    Curvature_Higgs_CT_L4[7][6][4][5] = DRL5CT;
 
-Curvature_Higgs_CT_L4[7][6][5][4] = DRL5CT;
+    Curvature_Higgs_CT_L4[7][6][5][4] = DRL5CT;
 
-Curvature_Higgs_CT_L4[7][6][5][5] = DIL5CT;
+    Curvature_Higgs_CT_L4[7][6][5][5] = DIL5CT;
 
-Curvature_Higgs_CT_L4[7][6][6][7] = DL2CT;
+    Curvature_Higgs_CT_L4[7][6][6][7] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][6][7][6] = DL2CT;
+    Curvature_Higgs_CT_L4[7][6][7][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][7][0][0] = DL3CT;
+    Curvature_Higgs_CT_L4[7][7][0][0] = DL3CT;
 
-Curvature_Higgs_CT_L4[7][7][1][1] = DL3CT;
+    Curvature_Higgs_CT_L4[7][7][1][1] = DL3CT;
 
-Curvature_Higgs_CT_L4[7][7][2][2] = DL2CT;
+    Curvature_Higgs_CT_L4[7][7][2][2] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][7][3][3] = DL2CT;
+    Curvature_Higgs_CT_L4[7][7][3][3] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][7][4][4] = DL3CT + DL4CT - DRL5CT;
+    Curvature_Higgs_CT_L4[7][7][4][4] = DL3CT + DL4CT - DRL5CT;
 
-Curvature_Higgs_CT_L4[7][7][4][5] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][7][4][5] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][7][5][4] = -DIL5CT;
+    Curvature_Higgs_CT_L4[7][7][5][4] = -DIL5CT;
 
-Curvature_Higgs_CT_L4[7][7][5][5] = DL3CT + DL4CT + DRL5CT;
+    Curvature_Higgs_CT_L4[7][7][5][5] = DL3CT + DL4CT + DRL5CT;
 
-Curvature_Higgs_CT_L4[7][7][6][6] = DL2CT;
+    Curvature_Higgs_CT_L4[7][7][6][6] = DL2CT;
 
-Curvature_Higgs_CT_L4[7][7][7][7] = 3*DL2CT;
- }
+    Curvature_Higgs_CT_L4[7][7][7][7] = 3 * DL2CT;
+  }
+
   return;
 }
 
@@ -2122,11 +2123,11 @@ void Class_Potential_C2HDM_rev::write() const
   std::cout << "DL4CT = " << DL4CT << std::endl;
   std::cout << "DRL5CT = " << DRL5CT << std::endl;
   std::cout << "DIL5CT = " << DIL5CT << std::endl;
+  std::cout << "CTImLam6 = " << CTImLam6 << std::endl;
   std::cout << "DTCharged = " << DTCharged << std::endl;
   std::cout << "DT1 = " << DT1 << std::endl;
   std::cout << "DT2 = " << DT2 << std::endl;
   std::cout << "DT3 = " << DT3 << std::endl;
-  std::cout << "CTImL6 = " << CTImL6 << std::endl;
 
   if (CalcCouplingsdone)
   {
@@ -2315,15 +2316,14 @@ std::vector<double> Class_Potential_C2HDM_rev::calc_CT() const
       HCW(i, j) = WeinbergHesse.at(j * NHiggs + i);
   }
   /////////////////////////////////////////////////
-  double dummy =
-      -(2 * HCW(3, 3)) / std::pow(v1, 2) + (2 * HCW(7, 7)) / std::pow(v1, 2);
+  double CT_free_par = -(2 * HCW(3, 3)) / std::pow(v1, 2) + (2 * HCW(7, 7)) / std::pow(v1, 2);
   // Du1CT
-  parCT.push_back(dummy * std::pow(v2, 2) + HCW(4, 4) / 2. +
+  parCT.push_back(CT_free_par * std::pow(v2, 2) + HCW(4, 4) / 2. +
                   (v2 * HCW(4, 6)) / (2. * v1) - (3 * HCW(5, 5)) / 2. -
                   (v2 * HCW(5, 7)) / (2. * v1));
 
   // Du2CT
-  parCT.push_back(dummy * std::pow(v1, 2) + (v1 * HCW(4, 6)) / (2. * v2) -
+  parCT.push_back(CT_free_par * std::pow(v1, 2) + (v1 * HCW(4, 6)) / (2. * v2) -
                   (v1 * HCW(5, 7)) / (2. * v2) + HCW(6, 6) / 2. -
                   (3 * HCW(7, 7)) / 2.);
 
@@ -2332,27 +2332,27 @@ std::vector<double> Class_Potential_C2HDM_rev::calc_CT() const
                   (3 * NCW(5)) / (2. * v2));
 
   // DRu3CT
-  parCT.push_back(dummy * v1 * v2 + HCW(5, 7));
+  parCT.push_back(CT_free_par * v1 * v2 + HCW(5, 7));
 
   // DL1CT
-  parCT.push_back(-((dummy * std::pow(v2, 2)) / std::pow(v1, 2)) -
+  parCT.push_back(-((CT_free_par * std::pow(v2, 2)) / std::pow(v1, 2)) -
                   HCW(4, 4) / std::pow(v1, 2) + HCW(5, 5) / std::pow(v1, 2));
 
   // DL2CT
-  parCT.push_back(-((dummy * std::pow(v1, 2)) / std::pow(v2, 2)) -
+  parCT.push_back(-((CT_free_par * std::pow(v1, 2)) / std::pow(v2, 2)) -
                   HCW(6, 6) / std::pow(v2, 2) + HCW(7, 7) / std::pow(v2, 2));
 
   // DL3CT
-  parCT.push_back(-dummy + HCW(1, 3) / (v1 * v2) -
+  parCT.push_back(-CT_free_par + HCW(1, 3) / (v1 * v2) -
                   HCW(3, 3) / std::pow(v1, 2) - HCW(4, 6) / (v1 * v2) +
                   HCW(7, 7) / std::pow(v1, 2));
 
   // DL4CT
-  parCT.push_back(dummy + (2 * HCW(3, 3)) / std::pow(v1, 2) -
+  parCT.push_back(CT_free_par + (2 * HCW(3, 3)) / std::pow(v1, 2) -
                   (2 * HCW(7, 7)) / std::pow(v1, 2));
 
   // DRL5CT
-  parCT.push_back(dummy);
+  parCT.push_back(CT_free_par);
 
   // DIL5CT
   parCT.push_back((2 * HCW(6, 7)) / std::pow(v1, 2));
@@ -2369,7 +2369,7 @@ std::vector<double> Class_Potential_C2HDM_rev::calc_CT() const
   // DT3
   parCT.push_back(-((v1 * NCW(5)) / v2) - NCW(7));
 
-  // CTImL6
+  // CTImLam6
   parCT.push_back(-(HCW(4, 5) / (v1 * v2)) -
                   (v2 * HCW(6, 7)) / std::pow(v1, 3));
 
@@ -2393,7 +2393,8 @@ std::vector<double> Class_Potential_C2HDM_rev::calc_CT() const
 
       v2 * HCW(0, 3) + NCW(5),
 
-  };
+  }; // CRelations must be numerical zero, since these correspond to the
+     // additional conditions for the CT-solutions
   /////////////////////////////////////////////////
 
   // std::cout << std::endl;
@@ -3149,7 +3150,7 @@ double Class_Potential_C2HDM_rev::VCounterSimplified(
   // else
   throw std::runtime_error(
       "You are trying to use simplified counterterm potential");
-  //   double res = 0;
+  double res = 0;
 
   //   double v1, v2, vcp, vcb;
 
@@ -3183,7 +3184,7 @@ double Class_Potential_C2HDM_rev::VCounterSimplified(
   //   //	std::cout << "DTC = " << DTCharged << std::endl;
   //   res += DTCharged * vcb;
 
-  //   return res;
+  return res;
 }
 
 void Class_Potential_C2HDM_rev::Debugging(const std::vector<double> &input,

@@ -76,7 +76,7 @@ public:
   double DL1CT=0,DL2CT=0,DL3CT=0,DL4CT=0,DRL5CT=0,Du2CT=0,Du1CT=0,DRu3CT=0;
   double DIL5CT=0,DIu3CT=0;
   double DT1=0,DT2=0,DT3=0,DTCharged=0;
-  double CTImL6=0;//Additional CT to cancel the CP-violation contribution
+  double CTImLam6 =0;
 
   double TanBeta=0,C_CosBeta=0,C_SinBeta=0,C_CosBetaSquared=0,C_SinBetaSquared=0;
   double beta=0;
@@ -135,4 +135,4 @@ public:
 
 }
 }
-#endif /* SRC_CLASSPOTENTIALC2HDM_REF_H_ */
+#endif /* SRC_CLASSPOTENTIALC2HDM_REV_H_ */

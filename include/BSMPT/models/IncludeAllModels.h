@@ -91,8 +91,8 @@ const std::set<ModelID::ModelIDs> EWBG_ImplementedModels = {
  * @brief Checks if given model is implemented for the EWBG calculation
  * 
  * @param modelname 
- * @return true 
- * @return false 
+ * @return true if model is available for the EWBG calculation
+ * @return false if model is not implemented for the EWBG calculation
  */
 bool ModelEWBGImplemented(ModelIDs  modelname);
 /**
