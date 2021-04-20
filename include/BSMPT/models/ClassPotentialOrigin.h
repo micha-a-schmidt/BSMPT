@@ -1269,6 +1269,13 @@ public:
    * @return
    */
   Eigen::MatrixXd HessianCT(const std::vector<double> &v) const;
+
+  /**
+   * @brief Checks if the model has a EWBG implementation
+   *
+   * @return true if the model has a EWBG implementation, false otherwise
+   */
+  bool IsEWBGImplemented() const;
 };
 
 } // namespace BSMPT

@@ -24,10 +24,10 @@
 
 #include <algorithm> // for max
 #include <memory>
+#include <set>
 #include <string> // for string
 #include <unordered_map>
 #include <vector>
-#include <set>
 
 /**
  * @file
@@ -72,8 +72,8 @@ const std::unordered_map<std::string, ModelIDs> ModelNames{
     {"template", ModelIDs::TEMPLATE},
     {"c2hdmctiml6", ModelIDs::C2HDMCTIML6},
     {"c2hdmctiml7", ModelIDs::C2HDMCTIML7},
-    {"c2hdmctgenim",ModelIDs::C2HDMGENIM},
-    {"c2hdmrev",ModelIDs::C2HDMREV}
+    {"c2hdmctgenim", ModelIDs::C2HDMGENIM},
+    {"c2hdmrev", ModelIDs::C2HDMREV}
 
 };
 /**
@@ -85,16 +85,8 @@ const std::set<ModelID::ModelIDs> EWBG_ImplementedModels = {
     ModelID::ModelIDs::C2HDMCTIML6,
     ModelID::ModelIDs::C2HDMCTIML7,
     ModelID::ModelIDs::C2HDMGENIM,
-    ModelID::ModelIDs::C2HDMREV
-};
-/**
- * @brief Checks if given model is implemented for the EWBG calculation
- * 
- * @param modelname 
- * @return true if model is available for the EWBG calculation
- * @return false if model is not implemented for the EWBG calculation
- */
-bool ModelEWBGImplemented(ModelIDs  modelname);
+    ModelID::ModelIDs::C2HDMREV};
+
 /**
  * @brief InvertModelNames
  * @return The switched map to ModelNames

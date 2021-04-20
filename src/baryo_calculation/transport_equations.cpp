@@ -495,7 +495,7 @@ double transport_equations::calculate_theta(const double &z,
 {
   double res      = 0;
   double thetasym = symmetric_CP_violating_phase;
-  if (! ModelEWBGImplemented(modelPointer->get_Model()))
+  if (not modelPointer->IsEWBGImplemented())
     std::cerr << "This is only programmed for the C2HDM" << std::endl;
   double thetabrk  = broken_CP_violating_phase;
   double difftheta = thetabrk - thetasym;
@@ -787,8 +787,8 @@ transport_equations &transport_equations::operator()(const state_type &x,
     //* K6t * mub2 * vw * dmtsquared + 3 * GSS * K6t * mut2 * vw * dmtsquared +
     // 3 * GSS * K6t * mutc2 * vw * dmtsquared - 3 * GTTot * K2t * mut2 * vw *
     // dmtsquared - 3 * GW * K6t * mub2 * vw * dmtsquared + 3 * GW * K6t * mut2
-    // * vw * dmtsquared + 3 * GY * K6t * muh2 * vw * dmtsquared + 3 * GY * K6t *
-    // mut2 * vw * dmtsquared + 3 * GY * K6t * mutc2 * vw * dmtsquared + 27 *
+    // * vw * dmtsquared + 3 * GY * K6t * muh2 * vw * dmtsquared + 3 * GY * K6t
+    // * mut2 * vw * dmtsquared + 3 * GY * K6t * mutc2 * vw * dmtsquared + 27 *
     // GSS
     //* GTTot * K1b * mub2 + 27 * GSS * GTTot * K1t * mut2 - 27 * GSS * GTTot *
     // K1t * mutc2 - 3 * GTTot * K1t * dmut2 * vw + 6 * GM * GTTot * mut2 + 6 *
@@ -805,9 +805,10 @@ transport_equations &transport_equations::operator()(const state_type &x,
     //* mut2 * vw * dmtsquared + 6 * GM * K6t * mutc2 * vw * dmtsquared + 3 *
     // GSS * K6t * mub2 * vw * dmtsquared + 3 * GSS * K6t * mut2 * vw *
     // dmtsquared + 3 * GSS * K6t * mutc2 * vw * dmtsquared + 3 * GY * K6t * vw
-    // * dmtsquared * mub2 + 6 * GY * K6t * muh2 * vw * dmtsquared + 3 * GY * K6t
-    // * mut2 * vw * dmtsquared + 6 * GY * K6t * mutc2 * vw * dmtsquared - dSt) /
-    // K4t) / 0.3e1;
+    // * dmtsquared * mub2 + 6 * GY * K6t * muh2 * vw * dmtsquared + 3 * GY *
+    // K6t
+    // * mut2 * vw * dmtsquared + 6 * GY * K6t * mutc2 * vw * dmtsquared - dSt)
+    // / K4t) / 0.3e1;
     //		//ddmuh2
     //		dxdt[7] = (double) (GHTot * (-4 * vw * K1h * dmuh2 + 3 * mub2 * GY + 6
     //* muh2 * GY + 3 * mut2 * GY + 6 * mutc2 * GY + 4 * GH * muh2) / K4h) /

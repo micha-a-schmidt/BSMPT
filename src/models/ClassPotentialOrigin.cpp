@@ -3006,4 +3006,10 @@ Class_Potential_Origin::HessianCT(const std::vector<double> &v) const
   }
   return result;
 }
+
+bool Class_Potential_Origin::IsEWBGImplemented() const
+{
+  return ModelID::EWBG_ImplementedModels.count(Model) != 0;
+}
+
 } // namespace BSMPT

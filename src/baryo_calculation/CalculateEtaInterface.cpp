@@ -186,8 +186,7 @@ void CalculateEtaInterface::setNumerics(
   TC            = TC_input;
   modelPointer  = modelPointer_input;
 
-  
-  if(!ModelEWBGImplemented(modelPointer->get_Model()))
+  if (not modelPointer->IsEWBGImplemented())
   {
     throw std::runtime_error(
         "Baryogenesis is only implemented for the C2HDM at the moment.");

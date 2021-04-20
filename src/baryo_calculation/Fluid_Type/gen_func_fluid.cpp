@@ -472,7 +472,7 @@ gen_fluid::Calc_theta(double z, double CP_sym, double CP_brk)
 {
   std::vector<double> res;
   res.resize(3);
-  if (!ModelEWBGImplemented(modelPointer->get_Model()))
+  if (not modelPointer->IsEWBGImplemented())
     std::cerr << "This is only programmed for the C2HDM" << std::endl;
   if ((std::abs(CP_sym) < 1e-12) and (std::abs(CP_brk) < 1e-12))
   {
