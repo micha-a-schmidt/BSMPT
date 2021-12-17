@@ -18,6 +18,7 @@ set(header
 
   # Here you can add your new model
   ${header_path}/ClassTemplate.h
+  ${header_path}/ClassZeeModel.h
 )
 
 set(src
@@ -36,6 +37,7 @@ set(src
 
   # Here you can add your new model
   ClassTemplate.cpp
+  ClassZeeModel.cpp
 )
 
 add_library(Models ${header} ${src})

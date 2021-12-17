@@ -17,6 +17,7 @@
 #include <utility>   // for pair
 
 #include <BSMPT/models/ClassTemplate.h>
+#include <BSMPT/models/ClassZeeModel.h>
 #include <BSMPT/utility/Logger.h>
 
 namespace BSMPT
@@ -39,6 +40,7 @@ std::unique_ptr<Class_Potential_Origin> FChoose(ModelIDs choice)
     return std::make_unique<Class_Potential_CPintheDark>();
     break;
   case ModelIDs::TEMPLATE: return std::unique_ptr<Class_Template>(); break;
+  case ModelIDs::ZEEMODEL: return std::unique_ptr<Class_ZeeModel>(); break;
   default: throw std::runtime_error("Invalid model");
   }
 }
